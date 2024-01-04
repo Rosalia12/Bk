@@ -95,7 +95,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random
 from sklearn.neighbors import KNeighborsClassifier
 knn_model = KNeighborsClassifier(n_neighbors = 3)
 knn_model.fit(X_train, y_train)
-y_pred_knn = knn_model.predict(X_test)
+
 
 with open('knn_pickle', 'wb') as r:
   pickle.dump(knn_model,r)
