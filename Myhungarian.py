@@ -104,7 +104,7 @@ with open('knn_pickle', 'rb') as r:
   model = pickle.load(r)
 
 y_pred = model.predict(X)
-accuracy = round(accuracy_score(y_test, y_pred),3)
+accuracy = round(accuracy_score(y, y_pred),3)
 accuracy = round((accuracy * 100), 2)
 
 df_final = X
