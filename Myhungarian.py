@@ -86,7 +86,20 @@ y = df_clean['target']
 smote = SMOTE(random_state=42)
 X, y = smote.fit_resample(X, y)
 
-model = pickle.load(open("knn_model.pkl", 'rb'))
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+
+from sklearn.neighbors import KNeighborsClassifier
+knn_model = KNeighborsClassifier(n_neighbors = 3)
+knn_model.fit(X_train, y_train)
+y_pred_knn = knn_model.predict(X_test)
+
+with open('knn_pickle', 'wb') as r:
+  pickle.dump(knn_model,r)
+
+with open('knn_pickle', 'rb') as r:
+  model = pickle.load(r)
 
 y_pred = model.predict(X)
 accuracy = round(accuracy_score(y, y_pred),3)
