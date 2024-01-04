@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from imblearn.over_sampling import SMOTE
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 import streamlit as st
 import time
 import pickle
@@ -99,7 +101,7 @@ with open('knn_pickle', 'wb') as r:
   pickle.dump(knn_model,r)
 
 with open('knn_pickle', 'rb') as r:
-  model = pickle.load(r)
+  model = pickle.load(r)
 
 y_pred = model.predict(X)
 accuracy = round(accuracy_score(y, y_pred),3)
