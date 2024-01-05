@@ -92,15 +92,15 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
 
-from sklearn.neighbors import KNeighborsClassifier
-knn_model = KNeighborsClassifier(n_neighbors = 3)
-knn_model.fit(X_train, y_train)
+from sklearn.ensemble import RandomForestClassifier
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
 
 
-with open('knn_pickle', 'wb') as r:
-  pickle.dump(knn_model,r)
+with open('rf_pkl', 'wb') as r:
+  pickle.dump(rf_model,r)
 
-with open('knn_pickle', 'rb') as r:
+with open('rf_pkl', 'rb') as r:
   model = pickle.load(r)
 
 y_pred = model.predict(X)
