@@ -116,6 +116,8 @@ df_final['target'] = y
 st.set_page_config(
   page_title = "Hungarian Heart Disease",
   page_icon = ":heart:"
+  layout="wide",
+  bg="light-blue",
 )
 
 st.title("Hungarian Heart Disease")
@@ -223,9 +225,9 @@ with tab1:
 
   st.header("User Input as DataFrame")
   st.write("")
-  st.dataframe(preview_df.iloc[:, :6])
+  st.dataframe(preview_df.iloc[:, :6], bg="lightgreen")
   st.write("")
-  st.dataframe(preview_df.iloc[:, 6:])
+  st.dataframe(preview_df.iloc[:, 6:], bg="lightblue")
   st.write("")
 
   result = ":violet[-]"
